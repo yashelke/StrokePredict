@@ -1,0 +1,47 @@
+# version: '3.8'
+
+# services:
+#   backend:
+#     build: ./backend
+#     ports:
+#       - "5000:5000"
+#     environment:
+#       - FLASK_ENV=production
+#     networks:
+#       - stroke-network
+
+#   frontend:
+#     build: ./frontend
+#     ports:
+#       - "3000:80"
+#     depends_on:
+#       - backend
+#     networks:
+#       - stroke-network
+
+# networks:
+#   stroke-network:
+#     driver: bridge
+
+services:
+  backend:
+    image: yashelke/stroke-backend:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+    networks:
+      - stroke-network
+
+  frontend:
+    image: yashelke/stroke-frontend:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - stroke-network
+
+networks:
+  stroke-network:
+    driver: bridge

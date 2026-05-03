@@ -147,6 +147,8 @@ import numpy as np
 from joblib import dump
 import matplotlib.pyplot as plt
 
+
+
 def load_data():
     df = pd.read_csv('./stroke-data.csv')
     df = df.drop('id', axis=1)
